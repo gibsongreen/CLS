@@ -1,0 +1,108 @@
+{%extends 'layout.html'%} {%block body%}
+<section id="home">
+    <div class="container" style="padding-top: 2rem">
+        <h2 class="d-flex justify-content-center">Archive</h2>
+
+    </div>
+</section>
+
+<h3>Video Archive</h3>
+<table>
+    <thead>
+    <th>Video Id</th>
+    <th>Name</th>
+    <th>Event_Type</th>
+    <th>Duration</th>
+    <th>FPS</th>
+    <th>Original FPS</th>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Size</th>
+    <th>Width</th>
+    <th>Height</th>
+    <th>URL</th>
+    <th>Delete Record</th>
+    </thead>
+    {% for data in videos %}
+    <tbody>
+    <td>{{data.id}}</td>
+    <td>{{data.name}}</td>
+    <td>{{data.event_type}}</td>
+    <td>{{data.duration}}</td>
+    <td>{{data.fps}}</td>
+    <td>{{data.original_fps}}</td>
+    <td>{{data.date}}</td>
+    <td>{{data.time}}</td>
+    <td>{{data.size}}</td>
+    <td>{{data.width}}</td>
+    <td>{{data.height}}</td>
+    <td>{{data.url}}</td>
+    <td><a href="/delete_video/{{data.id}}" type="button">Delete</a></td>
+    </tbody>
+    {% endfor%}
+</table>
+<br>
+
+<h3>Search</h3>
+<form action="/event_type_search" method="POST">
+    <label>Search by Event Type:</label>
+    <br>
+    <input type="radio" id="ic" name="event_type" value="IC">
+    <label for="ic">Intracloud</label>
+
+    <input type="radio" id="cg" name="event_type" value="CG">
+    <label for="cg">Cloud to Ground</label>
+
+    <input type="radio" id="cc" name="event_type" value="CC">
+    <label for="cc">Cloud to Cloud</label>
+
+    <input type="radio" id="s" name="event_type" value="S">
+    <label for="s">Spider</label>
+
+    <input type="radio" id="u" name="event_type" value="U">
+    <label for="u">Upward</label>
+    <br>
+    <button type="submit">Seach by Event Type</button>
+</form>
+<br>
+
+<form action="/date_search" method="POST">
+    <label for="Date">Search by Specific Date:</label>
+    <br>
+    <input type="date" id="Date" name="date">
+    <br>
+    <button type="submit">Seach by Date</button>
+</form>
+<br>
+
+<form action="/date_time_search" method="POST">
+    <label for="Date">Specific Date:</label>
+    <label for="Time">Specific Time:</label>
+    <br>
+    <input type="date" id="Date" name="date">
+    <input type="time" name="time" placeholder="Time"><br>
+    <button type="submit">Seach by Date and Time</button>
+</form>
+<br>
+<br>
+<h3>User Archive (temp)</h3>
+<br>
+<table>
+    <thead>
+    <th>Id</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Delete Record</th>
+    </thead>
+    {% for data in users %}
+    <tbody>
+    <td>{{data.id}}</td>
+    <td>{{data.first_name}}</td>
+    <td>{{data.last_name}}</td>
+    <td>{{data.email}}</td>
+    <td><a href="/delete_user/{{data.id}}" type="button">Delete</a></td>
+    </tbody>
+    {% endfor%}
+</table>
+    {% endblock%}

@@ -1,0 +1,18 @@
+{%extends 'layout.html'%} {%block body%}
+<section id="home">
+    <div class="container" style="padding-top: 2rem">
+        <h2 class="d-flex justify-content-center">Create Account</h2>
+    </div>
+</section>
+
+<form action="/add_user" method="POST">
+    <label>First Name</label><br>
+    <input type="text" name="first_name" placeholder="first name"><br>
+    <label>Last Name</label><br>
+    <input type="text" name="last_name" placeholder="last name"><br>
+    <label>Email</label><br>
+    <input type="text" name="email" placeholder="email"><br>
+    <button type="submit">Submit</button>
+</form>
+
+{% endblock%}
