@@ -1,13 +1,25 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, send_file, Response, jsonify, stream_with_context
+#from s3_functions import upload_file, show_image
+from werkzeug.utils import secure_filename
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 import os
+import re
+import requests
+import uuid
+from werkzeug.datastructures import Headers
+import json
 import cv2
 import tensorflow
+import boto3
+import botocore
 
 # init app
 basedir = os.path.abspath(os.path.dirname(__file__))  # base directory
 app = Flask(__name__)
+BUCKET = "cloudstoragevideotest"
+UPLOAD_FOLDER = "uploads"
+
 
 # Database
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'database.db')
@@ -137,6 +149,13 @@ def post_video():
 
     db.session.add(test_vid)
     db.session.commit()
+
+    # upload the file to S3
+
+    if request.method == "POST":
+        f = request.files['file']
+        f.save(os.path.join(UPLOAD_FOLDER, secure_filename(f.filename)))
+        upload_file(f"uploads/{f.filename}", BUCKET)
     return render_template('live.html')
 
 @app.route('/delete_user/<int:id>')
@@ -147,10 +166,32 @@ def delete_user_record(id):
     return render_template('live.html')
 
 @app.route('/delete_video/<int:id>')
-def delete__video_record(id):
+def delete_video_record(id):
     data = VIDEO.query.get(id)
     db.session.delete(data)
     db.session.commit()
+    return render_template('live.html')
+
+@app.route('/download_video/<string:name>')
+def download_video_record(name):
+    key = f'uploads/{name}'
+    s3 = boto3.resource('s3', aws_access_key_id="AKIAWHZ7WWMI246QZBN5",
+         aws_secret_access_key="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")
+
+    try:
+        file = s3.Bucket(BUCKET).Object(key).get()
+        return Response(
+            file['Body'].read(),
+            mimetype='text/plain',
+            headers={"Content-Disposition": "attachment;filename={}".format(key)}
+    )          
+
+    except botocore.exceptions.ClientError as e:
+        if e.response['Error']['Code'] == "404":
+            print("The file selected to download does not exist.")
+        else:
+            raise Exception
+
     return render_template('live.html')
 
 @app.route('/archieve', methods=['GET'])
@@ -196,10 +237,35 @@ def account():
     db.session.add(user)
     db.session.commit()
     return render_template('about.html')
-    
+
+def upload_file(file_name, BUCKET):
+    object_name = file_name
+    s3 = boto3.resource('s3', aws_access_key_id="AKIAWHZ7WWMI246QZBN5",
+         aws_secret_access_key="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")
+    response = s3.meta.client.upload_file(file_name, BUCKET, object_name)
+    return response
+
+@app.route('/upload', methods=['POST'])
+def upload():
+    if request.method == "POST":
+        f = request.files['file']
+        f.save(os.path.join(UPLOAD_FOLDER, secure_filename(f.filename)))
+        upload_file(f"uploads/{f.filename}", BUCKET)
+        return render_template("liveview.html")
+
+@app.route('/view_video/<string:name>')
+def view_video(name):
+    key = f"https://d1skcoh8jzfxme.cloudfront.net/uploads/{name}"
+    return render_template('liveview.html', key=key)
+
 @app.route('/liveview', methods=['GET'])
 def live():
     return render_template('liveview.html')
+
+
+
+
+
 
 '''
 @app.route('/video_feed')

@@ -5,10 +5,17 @@
     </div>
 </section>
 
-<!--
+<video controls="controls" controlsList=”nodownload” width ="640" height="360">
+    <source src={{key}} type="video/mp4">
+</video>
 
-<img src="{{url_for('video_feed')}}" width = "50%">
 
--->
+<h3>Upload your file here:</h3>
+<form method="POST" action="/upload" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <input type="submit" value="Upload">
+</form>
+
+<p> {{test}}</p>
 
 {% endblock%}

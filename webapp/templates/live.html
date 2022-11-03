@@ -9,7 +9,7 @@
     <input type="text" name="date" placeholder="Date"><br>
     -->
 
-<form action="/add_video" method="POST">
+<form action="/add_video" method="POST" enctype="multipart/form-data">
     <label>Name:</label> <br>
     <input type="text" name="name" placeholder="Name"> <br>
 
@@ -56,8 +56,12 @@
     <input type="radio" id="1080p" name="resolution" value="1080p">
     <label for="1080p">1080p</label><br>
 
-    <label>S3 URL:</label><br>
-    <input type="text" name="url" placeholder="URL"><br><br>
+    <input type="file" name="file"><br><br>
+
+
+    <!--   <label>S3 URL:</label><br>
+        <input type="text" name="url" placeholder="URL"><br><br>
+    -->
 
     <button type="submit">Submit</button>
 </form>
