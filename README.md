@@ -27,6 +27,8 @@ Flask
 SQLAlchemy
 S3, CloudFront
 
+![alt text](https://github.com/gibsongreen/CLS/blob/44cca0aee384e0bbe58cc70cda95d67b389d0bf4/webapp/static/UseCaseDiagram.png)
+
 
 # Demonstration
  ![Alt text](gibsongreen/OOPorject/files/ezgif-7-58c6575f54.gif)
