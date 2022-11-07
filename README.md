@@ -69,7 +69,7 @@ Local VCS
 Repository Hosting
 - Github
 
-Sprint Overview History
+Sprint Overview History (View Issues)
 1. Agile Planning (9/1-9/13)
 - AWS Architectual Diagram (Kaden), Database Schema Diagram (Gibson), Figma Mockup (V1. Gibson, V2. Kaden), Use Cases (Gibson), Use Case Diagram (Gibson)
 2. Creat Database file and basic Frontend (HTML and CSS) with Flask (9/13-9/20)
