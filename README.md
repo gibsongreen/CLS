@@ -1,27 +1,26 @@
 # CLS
-**Please View the Raw option to view the system inheritance viewable model **
 
-The Kitchen Inventory System was developed independently by Gibson Green. It is an inventory system to track
-the food and drink items in the different containers in the kitchen. It also has a grocery list for the kitchen.
-This project was made throughout the Fall Semester of 2021, as an integration school project for Programming II at
-Florida Gulf Coast University. 
-
-Frontend
-- React
-- HTML
-- CSS
-
-Backend 
-- Flask
-- SQLAlchemy
-- S3, CloudFront
+Cloud Storage System is a web database server that enables users to view, upload, and download video files and related metadata of Lightning Events. 
+This version of CLS will contain videos captured by Gibson Green, relating to the Physics publication "Lightning Activities in Different Meteorological
+Conditions." Videos have been modified with VideoEditing Software written by Gibson Green, and these are the videos displayed, typically, at a reduced
+FPS rate, to gain a better understanding of these high speed events. These videos are to be used for educational use only. 
 
 Data Stored:
 User Data
 - User Personal Information Data
 - First, Last Name
 - Email address
-- Intended use in accessing data
+
+Video Data
+- Name
+- Event Type
+- Duration
+- Frames per Second
+- Original FPS
+- Date
+- Time
+- Size of File
+- Resolution
 
 
 # Demonstration
@@ -66,8 +65,15 @@ child class Freezer
 Clone the repository, Final.cpp is the main function to operate the program
 
 # Built With
-- Microsoft Visual Studio 2019 
-- Documentation Generated with Doxygen
+Frontend
+- React (Not integrated yet)
+- HTML
+- CSS
+
+Backend 
+- Flask
+- SQLAlchemy, Marshmallow
+- S3, CloudFront
 
 # Contributing
 
