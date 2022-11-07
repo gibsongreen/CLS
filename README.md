@@ -59,7 +59,10 @@ Backend
 
 # History
 Version Control System
-- Utilization of Git and Github
+Local VCS
+- Git
+Repository Hosting
+- Github
 
 Sprint Overview History
 1. Creat Database file and basic Frontend (HTML and CSS) with Flask
@@ -73,6 +76,8 @@ Sprint Overview History
 5. Create and integrate React with DB and S3 (Kaden) (TBD)
 
 # Key Programming Concepts Utilized
+- Team Communication utilizing Slack
+- Agile & Sprint Methodologies utilized
 - Best practices for style and readability utilized
 - Best practices for documentation utilized
 		
