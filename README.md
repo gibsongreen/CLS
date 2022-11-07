@@ -63,10 +63,14 @@ Version Control System
 
 Sprint Overview History
 1. Creat Database file and basic Frontend (HTML and CSS) with Flask
-2. Create UI to manipulate and parse Database
-3. Upload, Download, and Display files from S3
-4. Integate DB and S3 interactions with Flask
-5. Create and integrate React with DB and S3
+- SQL Alchemy(Gibson) and Flask (Kaden) developed seperately, then integrated 
+2. Create UI to manipulate and parse Database (Gibson)
+- After initial integration, records can be added, modified, and deleted
+3. Upload, Download, and Display files from S3 (Gibson)
+- From Flask, ability to interact and manipulate with S3
+4. Integate DB and S3 interactions with Flask (Gibson)
+- SQLAlchemy DB (Flask local) and S3 integrated together
+5. Create and integrate React with DB and S3 (Kaden) (TBD)
 
 # Key Programming Concepts Utilized
 - Best practices for style and readability utilized
