@@ -5,6 +5,10 @@ This version of CLS will contain videos captured by Gibson Green, relating to th
 Conditions." Videos have been modified with VideoEditing Software written by Gibson Green, and these are the videos displayed, typically, at a reduced
 FPS rate, to gain a better understanding of these high speed events. These videos are to be used for educational use only. 
 
+# Mockup
+https://www.figma.com/file/7GGntTgTTAjbQwLr1MAEcD/Cloud-Storage?node-id=0%3A1
+
+
 Data Stored:
 User Data
 - User Personal Information Data
