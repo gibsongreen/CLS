@@ -8,6 +8,7 @@ FPS rate, to gain a better understanding of these high speed events. These video
 # Mockup
 https://www.figma.com/file/7GGntTgTTAjbQwLr1MAEcD/Cloud-Storage?node-id=0%3A1
 
+![alt text](https://github.com/gibsongreen/CLS/blob/a54594b331b327a04c7dae3b3d85845b221bb87a/webapp/static/Image.jpeg)
 
 Data Stored:
 User Data
