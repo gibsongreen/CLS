@@ -70,15 +70,17 @@ Repository Hosting
 - Github
 
 Sprint Overview History
-1. Creat Database file and basic Frontend (HTML and CSS) with Flask
+1. Agile Planning (9/1-9/13)
+- AWS Architectual Diagram (Kaden), Database Schema Diagram (Gibson), Figma Mockup (V1. Gibson, V2. Kaden), Use Cases (Gibson), Use Case Diagram (Gibson)
+2. Creat Database file and basic Frontend (HTML and CSS) with Flask (9/13-9/20)
 - SQL Alchemy(Gibson) and Flask (Kaden) developed seperately, then integrated 
-2. Create UI to manipulate and parse Database (Gibson)
+3. Create UI to manipulate and parse Database (Gibson) (9/20-9/27)
 - After initial integration, records can be added, modified, and deleted
-3. Upload, Download, and Display files from S3 (Gibson)
+4. Upload, Download, and Display files from S3 (Gibson) (10/21-10/28)
 - From Flask, ability to interact and manipulate with S3
-4. Integate DB and S3 interactions with Flask (Gibson)
-- SQLAlchemy DB (Flask local) and S3 integrated together
-5. Create and integrate React with DB and S3 (Kaden) (TBD)
+5. Integate DB and S3 interactions with Flask (Gibson) (10/28-10/31)
+- SQLAlchemy DB (Flask local) and S3 integrated together 
+6. Create and integrate React with DB and S3 (Kaden) (11/1-TBD)
 
 # Key Programming Concepts Utilized
 - Team Communication utilizing Slack
