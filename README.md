@@ -18,16 +18,24 @@ Sprint History
 
 
 Frontend
-React
-HTML
-CSS
+- React
+- HTML
+- CSS
 
 Backend 
-Flask
-SQLAlchemy
-S3, CloudFront
+- Flask
+- SQLAlchemy
+- S3, CloudFront
 
 ![alt text](https://github.com/gibsongreen/CLS/blob/44cca0aee384e0bbe58cc70cda95d67b389d0bf4/webapp/static/UseCaseDiagram.png)
+
+
+Data Stored:
+- User Data
+- User Personal Information Data
+- First, Last Name
+- Email address
+- Intended use in accessing data
 
 
 # Demonstration
