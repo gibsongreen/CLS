@@ -83,7 +83,7 @@ Sprint Overview History
 6. Create and integrate React with DB and S3 (Kaden) (11/1-TBD)
 
 # Key Programming Concepts Utilized
-- Team Communication utilizing Slack
+- Team Communication utilizing Slack, 1-2 in-person/virtual meetings per week
 - Agile & Sprint Methodologies utilized
 - Best practices for style and readability utilized
 - Best practices for documentation utilized
