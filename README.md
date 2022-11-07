@@ -6,17 +6,6 @@ the food and drink items in the different containers in the kitchen. It also has
 This project was made throughout the Fall Semester of 2021, as an integration school project for Programming II at
 Florida Gulf Coast University. 
 
-Version Control System
-Utilization of Git and Github
-
-Sprint History
-1. Creat Database file and basic Frontend (HTML and CSS) with Flask
-2. Create UI to manipulate and parse Database
-3. Upload, Download, and Display files from S3
-4. Integate DB and S3 interactions with Flask
-5. Create and integrate React with DB and S3
-
-
 Frontend
 - React
 - HTML
@@ -27,11 +16,8 @@ Backend
 - SQLAlchemy
 - S3, CloudFront
 
-![alt text](https://github.com/gibsongreen/CLS/blob/44cca0aee384e0bbe58cc70cda95d67b389d0bf4/webapp/static/UseCaseDiagram.png)
-
-
 Data Stored:
-- User Data
+User Data
 - User Personal Information Data
 - First, Last Name
 - Email address
@@ -45,6 +31,7 @@ https://gibsongreen.github.io/OOProject/index.html
 	
 
 # Diagrams 
+![alt text](https://github.com/gibsongreen/CLS/blob/44cca0aee384e0bbe58cc70cda95d67b389d0bf4/webapp/static/UseCaseDiagram.png)
 
 System Model:
 
@@ -86,38 +73,24 @@ Clone the repository, Final.cpp is the main function to operate the program
 
 # Author
 - Gibson Green
+- Kaden Carr
 
 
 # Acknowledgments
-- https://www.cmi.ac.in/~madhavan/courses/pl2009/lecturenotes/lecture-notes/node28.html#:~:text=Subtyping%20refers%20to%20compatibility%20of,refers%20to%20reuse%20of%20implementations
-- https://www.geeksforgeeks.org/
-- https://www.learncpp.com/
 
 # History
-- N/A
+Version Control System
+- Utilization of Git and Github
+
+Sprint History
+1. Creat Database file and basic Frontend (HTML and CSS) with Flask
+2. Create UI to manipulate and parse Database
+3. Upload, Download, and Display files from S3
+4. Integate DB and S3 interactions with Flask
+5. Create and integrate React with DB and S3
 
 # Key Programming Concepts Utilized
-LO1. Design and implement a class. 
 
-LO4. Include a comment in which you compare and contrast the procedural/functional approach and the object-oriented approach
-
-LO1a. At least one class in a header file with non-trivial methods implemented in a cpp file
-
-LO1b. Overload a constructor 
-
-LO1c. Utilize an initialization list
-
-LO2. Use subclassing to design simple class hierarchies that allow code to be reused for distinct subclasses.
-
-LO2a. Include comments describing the visibility inheritance model
-
-LO3. Correctly reason about control flow in a program using dynamic dispatch. 
-
-LO5. Explain the relationship between object-oriented inheritance (code-sharing and overriding) and subtyping (the idea of a subtype being usable in a context that expects the supertype).
-
-LO6. Use object-oriented encapsulation mechanisms such as interfaces and private members.
-
-LO7. Define and use iterators and other operations on aggregates, including operations that take functions as arguments. 
 
 - Follow best practices for style and readability
 - Follow best practices for documentation
