@@ -55,7 +55,7 @@ Backend
 
 # Contributing
 
-# Author
+# Authors
 - Gibson Green
 - Kaden Carr
 
