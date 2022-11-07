@@ -85,6 +85,5 @@ Sprint Overview History (View Issues)
 # Key Programming Concepts Utilized
 - Team Communication utilizing Slack, 1-2 in-person/virtual meetings per week
 - Agile & Sprint Methodologies utilized
-- Best practices for style and readability utilized
-- Best practices for documentation utilized
-		
+- Best practices for style, readability, documentation from docs.python standard
+https://docs.python-guide.org/writing/style/
