@@ -62,8 +62,7 @@ Backend
 
 # Acknowledgments
 
-# History
-Version Control System
+# History/Version Control System
 Local VCS
 - Git
 Repository Hosting
