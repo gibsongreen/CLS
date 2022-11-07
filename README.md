@@ -6,6 +6,28 @@ the food and drink items in the different containers in the kitchen. It also has
 This project was made throughout the Fall Semester of 2021, as an integration school project for Programming II at
 Florida Gulf Coast University. 
 
+Version Control System
+Utilization of Git and Github
+
+Sprint History
+1. Creat Database file and basic Frontend (HTML and CSS) with Flask
+2. Create UI to manipulate and parse Database
+3. Upload, Download, and Display files from S3
+4. Integate DB and S3 interactions with Flask
+5. Create and integrate React with DB and S3
+
+
+Frontend
+React
+HTML
+CSS
+
+Backend 
+Flask
+SQLAlchemy
+S3, CloudFront
+
+
 # Demonstration
  ![Alt text](gibsongreen/OOPorject/files/ezgif-7-58c6575f54.gif)
 # Documentation
