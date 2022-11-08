@@ -17,17 +17,19 @@ import botocore
 # init app
 basedir = os.path.abspath(os.path.dirname(__file__))  # base directory
 app = Flask(__name__)
+
+# S3 Bucket name and Bucket Folder declared
 BUCKET = "cloudstoragevideotest"
 UPLOAD_FOLDER = "uploads"
 
 
-# Database
+# Database Configuration
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'database.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # ip address of the stream
 ''''
-camera = cv2.VideoCapture('rtsp://192.168.0.25:8557/h264')
+camera = cv2.VideoCapture(s'rtsp://192.168.0.25:8557/h264')
 def get_frames():
     while True:
         success, frame = camera.read()
@@ -40,7 +42,7 @@ def get_frames():
                    b'Conent-Type:image\r\n\r\n' + frame + b'\r\n')
 '''
 
-# init db and ma
+#  Initialization of Database and Marshmallow
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
 
@@ -74,6 +76,7 @@ class VIDEO(db.Model):
 
     def __rep__(self):
         return f"Name: {self.name}, {self.event_type}"
+        
     #def __init__(self, name, event_type, duration, fps, original_fps, date, time, size, width, height, url):
      #   self.id = id
       #  self.name = name
@@ -97,11 +100,11 @@ class UserSchema(ma.Schema):
     class Meta:
         fields = ('id', 'first_name', 'last_name', 'email')
 
-# Init schema
-
+# Init Video Schema
 video_schema = VideoSchema()
 videos_schema = VideoSchema(many=True)
 
+# Init User Schema
 user_schema = UserSchema()
 user_schema = UserSchema(many=True)
 
@@ -119,6 +122,7 @@ def test():
 # linked to /live, to sumbit users to database
 @app.route('/add_video', methods=["POST"])
 def post_video():
+#
     name = request.form.get("name")
     event_type = request.form.get("event_type")
     duration = request.form.get("duration")
@@ -151,7 +155,6 @@ def post_video():
     db.session.commit()
 
     # upload the file to S3
-
     if request.method == "POST":
         f = request.files['file']
         f.save(os.path.join(UPLOAD_FOLDER, secure_filename(f.filename)))
@@ -175,17 +178,20 @@ def delete_video_record(id):
 @app.route('/download_video/<string:name>')
 def download_video_record(name):
     key = f'uploads/{name}'
+# temporarily using S3 Bucket AWS access key to get a response from the bucket
     s3 = boto3.resource('s3', aws_access_key_id="AKIAWHZ7WWMI246QZBN5",
          aws_secret_access_key="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")
 
     try:
+# if we can locate the file and get the object
         file = s3.Bucket(BUCKET).Object(key).get()
+# return a response of the file to Flask
         return Response(
             file['Body'].read(),
             mimetype='text/plain',
             headers={"Content-Disposition": "attachment;filename={}".format(key)}
     )          
-
+# if the Bucket key is not found, throw a 404 error
     except botocore.exceptions.ClientError as e:
         if e.response['Error']['Code'] == "404":
             print("The file selected to download does not exist.")
@@ -238,23 +244,34 @@ def account():
     db.session.commit()
     return render_template('about.html')
 
+# parameters: file_name = name of file to upload,
+# BUCKET = S3 Bucket to upload to
 def upload_file(file_name, BUCKET):
     object_name = file_name
+# temporarily using S3 Bucket AWS access key to get a response from the bucket
     s3 = boto3.resource('s3', aws_access_key_id="AKIAWHZ7WWMI246QZBN5",
          aws_secret_access_key="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")
+# uploads file to the S3 Bucket
     response = s3.meta.client.upload_file(file_name, BUCKET, object_name)
     return response
 
 @app.route('/upload', methods=['POST'])
 def upload():
+# file form is sumbitted to upload
     if request.method == "POST":
         f = request.files['file']
+# join the upload location and filename
         f.save(os.path.join(UPLOAD_FOLDER, secure_filename(f.filename)))
+# uploud the file file to the bucket
         upload_file(f"uploads/{f.filename}", BUCKET)
         return render_template("liveview.html")
 
+# When View button is selected
+# parameter = name of video that has been selected
 @app.route('/view_video/<string:name>')
 def view_video(name):
+# key is defined with the CloudFront link for the S3 Bucket
+# and the name of video to view is appended to the link
     key = f"https://d1skcoh8jzfxme.cloudfront.net/uploads/{name}"
     return render_template('liveview.html', key=key)
 
