@@ -1,21 +1,12 @@
 {%extends 'layout.html'%} {%block body%}
 <section id="home">
     <div class="container" style="padding-top: 2rem">
-        <h2 class="d-flex justify-content-center">Liveview</h2>
+        <h2 class="d-flex justify-content-center">View Video</h2>
     </div>
 </section>
 
 <video controls="controls" controlsList=”nodownload” width ="640" height="360">
     <source src={{key}} type="video/mp4">
 </video>
-
-
-<h3>Upload your file here:</h3>
-<form method="POST" action="/upload" enctype="multipart/form-data">
-    <input type="file" name="file">
-    <input type="submit" value="Upload">
-</form>
-
-<p> {{test}}</p>
 
 {% endblock%}

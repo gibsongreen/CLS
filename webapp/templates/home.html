@@ -21,6 +21,8 @@
     <th>Height</th>
     <th>URL</th>
     <th>Delete Record</th>
+    <th>Download Video</th>
+    <th>Watch Video</th>
     </thead>
     {% for data in type_search %}
     <tbody>
@@ -37,6 +39,8 @@
     <td>{{data.height}}</td>
     <td>{{data.url}}</td>
     <td><a href="/delete_video/{{data.id}}" type="button">Delete</a></td>
+    <td><a href="/download_video/{{data.name}}" type="button">Download</a></td>
+    <td><a href="/view_video/{{data.name}}" type="button">View</a></td>
     </tbody>
     {% endfor%}
 </table>
@@ -59,6 +63,8 @@
     <th>Height</th>
     <th>URL</th>
     <th>Delete Record</th>
+    <th>Download Video</th>
+    <th>Watch Video</th>
     </thead>
     {% for data in date_search %}
     <tbody>
@@ -75,6 +81,8 @@
     <td>{{data.height}}</td>
     <td>{{data.url}}</td>
     <td><a href="/delete_video/{{data.id}}" type="button">Delete</a></td>
+    <td><a href="/download_video/{{data.name}}" type="button">Download</a></td>
+    <td><a href="/view_video/{{data.name}}" type="button">View</a></td>
     </tbody>
     {% endfor%}
 </table>
@@ -97,6 +105,8 @@
     <th>Height</th>
     <th>URL</th>
     <th>Delete Record</th>
+    <th>Download Video</th>
+    <th>Watch Video</th>
     </thead>
     {% for data in date_time_search %}
     <tbody>
@@ -113,6 +123,8 @@
     <td>{{data.height}}</td>
     <td>{{data.url}}</td>
     <td><a href="/delete_video/{{data.id}}" type="button">Delete</a></td>
+    <td><a href="/download_video/{{data.name}}" type="button">Download</a></td>
+    <td><a href="/view_video/{{data.name}}" type="button">View</a></td>
     </tbody>
     {% endfor%}
 </table>
